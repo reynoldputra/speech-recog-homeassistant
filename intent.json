@@ -7,7 +7,7 @@
             ],
             "intents": [
                 {
-                    "action": ["tell me", "what"],
+                    "action": ["tell me", "what", "what's"],
                     "intentName": "GetTime"
                 }
             ]
@@ -19,7 +19,7 @@
             ],
             "intents": [
                 {
-                    "action": ["what", "how is"],
+                    "action": ["what", "what's", "how"],
                     "intentName": "GetWeather"
                 }
             ]
@@ -27,7 +27,7 @@
         {
             "serviceName": "temperature",
             "keyword": [
-                "temperature"
+                "temperature", "hot", "cold"
             ],
             "intents": [
                 {

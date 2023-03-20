@@ -5,6 +5,7 @@ from pygame import mixer
 from gtts import gTTS
 from datetime import datetime
 import json
+import requests
 
 r = sr.Recognizer()
 
@@ -22,8 +23,13 @@ def playaudio(text):
     os.remove(audiofile)
 
 def intent_triger(intent):
+    url = 'http://192.168.0.119:8123/api/intent/handle'
+    headers = {"Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhNzE5YzhmMzE3ZjE0NTEzOTM0NjY4YjdiZDgyNDI2ZiIsImlhdCI6MTY3OTI4NzI1MiwiZXhwIjoxOTk0NjQ3MjUyfQ._UEdLCtDcTBmhat9CjzEz-jJaoCZAzucY9epMzUOoP8", "Content-Type": "application/json"}
     print("Trigering", intent)
-    # create http request to triger intent script
+    service = requests.post(url, json={'name' : intent}, headers=headers).json()
+    responseText = (service['speech']['plain']['speech'])
+    print(responseText)
+    playaudio(responseText)
 
 def intent_handling(text):
     print("Text : " , text)
@@ -36,17 +42,16 @@ def intent_handling(text):
         intents = service["intents"] 
         if(any(word in text for word in keyword)):
             for intent in intents :
-                if(intent['action'] in text):
+                if(any(word in text for word in intent['action'])):
                     intent_triger(intent["intentName"])
                     return;
     print("Sorry, we can't recognize your command. Try to say it again.")
     intentFile.close()
 
-# with sr.Microphone() as source:
-print("================= Welcome! ===================")
-# playaudio("Hello! Welcome to the lab of cyber security and smart city, department of information technology I T S. How can I help you?")
-# audio_data = r.record(source, duration=7)
-print("Recognizing speech...")
-# text = r.recognize_google(audio_data)
-text = "Turning on the lights" # for testing
-intent_handling(text)
+with sr.Microphone() as source:
+    print("================= Welcome! ===================")
+    playaudio("Hello! Welcome to the lab of cyber security and smart city, department of information technology I T S. How can I help you?")
+    audio_data = r.record(source, duration=7)
+    print("Recognizing speech...")
+    text = r.recognize_google(audio_data)
+    intent_handling(text)
