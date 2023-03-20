@@ -1,11 +1,99 @@
 {
     "data": [
         {
-            "intentName" : "GetTime",
-            "speech" : [
-                "what time is it",
-                "tell me the time",
-                "tell me time"
+            "serviceName": "time_date",
+            "keyword": [
+                "time"
+            ],
+            "intents": [
+                {
+                    "action": ["tell", "how much"],
+                    "intentName": "GetTime"
+                }
+            ]
+        },
+        {
+            "serviceName": "weather",
+            "keyword": [
+                "weather"
+            ],
+            "intents": [
+                {
+                    "action": ["what", "how is"],
+                    "intentName": "GetWeather"
+                }
+            ]
+        },
+        {
+            "serviceName": "temperature",
+            "keyword": [
+                "temperature"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how cold", "how hot"],
+                    "intentName": "GetTemperature"
+                }
+            ]
+        },
+        {
+            "serviceName": "current",
+            "keyword": [
+                "current"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how much"],
+                    "intentName": "GetCurrent"
+                }
+            ]
+        },
+        {
+            "serviceName": "energy",
+            "keyword": [
+                "energy"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how much"],
+                    "intentName": "GetEnergy"
+                }
+            ]
+        },
+        {
+            "serviceName": "frequency",
+            "keyword": [
+                "frequency"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how much"],
+                    "intentName": "GetFrequency"
+                }
+            ]
+        },
+        {
+            "serviceName": "power",
+            "keyword": [
+                "power"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how much"],
+                    "intentName": "GetPower"
+                }
+            ]
+        },
+        {
+            "serviceName": "voltage",
+            "keyword": [
+                "voltage"
+            ],
+            "intents": [
+                {
+                    "action": ["tell me", "how much"],
+                    "intentName": "GetVoltage"
+                }
             ]
         }
     ]
