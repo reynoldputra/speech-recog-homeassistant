@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "serviceName": "light",
+            "keyword": [
+                "lights",
+                "light",
+                "like",
+                "lie",
+                "la",
+                "lait"
+            ],
+            "intents": [
+                {
+                    "action": "on",
+                    "intentName": "LightOn"
+                },
+                {
+                    "action": "off",
+                    "intentName": "LightOff"
+                }
+            ]
+        },
+        {
+            "serviceName": "air conditioner",
+            "keyword": [
+                "air conditioner",
+                "AC",
+                "cooler"
+            ],
+            "intents": [
+                {
+                    "action": "on",
+                    "intentName": "acOn"
+                },
+                {
+                    "action": "off",
+                    "intentName": "acOff"
+                }
+            ]
+        }
+    ]
+}
