@@ -7,7 +7,7 @@
             ],
             "intents": [
                 {
-                    "action": ["tell", "how much"],
+                    "action": ["tell me", "what"],
                     "intentName": "GetTime"
                 }
             ]
