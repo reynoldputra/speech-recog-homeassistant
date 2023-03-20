@@ -24,7 +24,7 @@ def playaudio(text):
 
 def intent_triger(intent):
     url = 'http://192.168.0.119:8123/api/intent/handle'
-    headers = {"Authorization" : "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhNzE5YzhmMzE3ZjE0NTEzOTM0NjY4YjdiZDgyNDI2ZiIsImlhdCI6MTY3OTI4NzI1MiwiZXhwIjoxOTk0NjQ3MjUyfQ._UEdLCtDcTBmhat9CjzEz-jJaoCZAzucY9epMzUOoP8", "Content-Type": "application/json"}
+    headers = {"Authorization" : "", "Content-Type": "application/json"}
     print("Trigering", intent)
     service = requests.post(url, json={'name' : intent}, headers=headers).json()
     responseText = (service['speech']['plain']['speech'])
